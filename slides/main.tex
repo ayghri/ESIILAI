@@ -1,0 +1,133 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+\setbeamertemplate{caption}[numbered]
+\useoutertheme{infolines}
+\setbeamertemplate{footline}{\hspace*{1cm}\scriptsize{
+		\hspace*{50pt} \hfill\insertframenumber\hspace*{.5cm}}\\
+	\vspace{10pt}}
+%Information to be included in the title page:
+\title{Machine Learning and Fair AI}
+\author{Ayoub Ghriss\\ University of Colorado, Boulder}
+\date{November 9th, 2023}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, latexsym}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{pgfgantt}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usetikzlibrary{decorations.pathreplacing}
+\definecolor{fc}{HTML}{1E90FF}
+\definecolor{conv}{HTML}{FFA500}
+\definecolor{pool}{HTML}{B22222}
+\tikzset{fc/.style={black,draw=fc,thick,rectangle,minimum height=0.75cm}}
+\tikzset{conv/.style={black,draw=conv,thick,rectangle,minimum height=0.75cm}}
+\tikzset{pool/.style={black,draw=pool,thick,rectangle,minimum height=0.75cm}}
+\definecolor{barblue}{RGB}{153,204,254}
+\definecolor{groupblue}{RGB}{51,102,254}
+\definecolor{linkred}{RGB}{165,0,33}
+\renewcommand\sfdefault{phv}
+\renewcommand\mddefault{mc}
+\renewcommand\bfdefault{bc}
+\setganttlinklabel{s-s}{START-TO-START}
+\setganttlinklabel{f-s}{FINISH-TO-START}
+\setganttlinklabel{f-f}{FINISH-TO-FINISH}
+\usepackage{xspace}
+\input{commands.tex}
+\begin{document}
+
+\frame{\titlepage}
+
+% \section{Overview}
+
+\begin{frame}
+	\frametitle{Artificial Intelligence and Machine Learning}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				% \pause
+				\item Artificial Intelligence (AI): software or machines that can
+				      automatically analyze, reason, and learn through new complex
+				      tasks.
+				      % \pause
+				\item How to define ``Intelligence"?: Human vs rational approaches
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				% \pause
+				\item Machine Learning (ML) is a set of methods that build
+				      intelligent software (AI).
+				      % \pause
+				\item ML methods: Supervised, Unsupervised, Reinforcement Learning
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+\begin{frame}
+	\frametitle{Schedule}
+	%
+	% A fairly complicated example from section 2.9 of the package
+	% documentation. This reproduces an example from Wikipedia:
+	% http://en.wikipedia.org/wiki/Gantt_chart
+	%
+	\begin{ganttchart}[
+			canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+			hgrid style/.style={draw=black!5, line width=.75pt},
+			vgrid={*1{draw=black!5, line width=.75pt}},
+			% today=7,
+			% today rule/.style={
+			% 		draw=black!64,
+			% 		dash pattern=on 3.5pt off 4.5pt,
+			% 		line width=1.5pt
+			% 	},
+			% today label font=\small\bfseries,
+			title/.style={draw=none, fill=none},
+			title label font=\bfseries\footnotesize,
+			title label node/.append style={below=7pt},
+			include title in canvas=false,
+			bar label font=\mdseries\small\color{black!70},
+			bar label node/.append style={left=2cm},
+			bar/.append style={draw=none, fill=black!63},
+			bar incomplete/.append style={fill=barblue},
+			bar progress label font=\mdseries\footnotesize\color{black!70},
+			group incomplete/.append style={fill=groupblue},
+			group left shift=0,
+			group right shift=0,
+			group height=.3,
+			group peaks tip position=0,
+			group label node/.append style={left=.6cm},
+			group progress label font=\bfseries\small,
+			link/.style={-latex, line width=1.5pt, linkred},
+			link label font=\scriptsize\bfseries,
+			link label node/.append style={below left=-2pt and 0pt}
+		]{1}{18}
+		\gantttitle[ title label node/.append style={below left=7pt and -3pt}]{Mins}{1}
+		\gantttitlelist{10,20,30,40,50,60,70,80,90}{2} \\
+		\ganttbar[ progress=50, progress label text={}, name=C1]{\textbf{Supervised} Learning}{1}{6} \\
+		\ganttbar[ progress=67, progress label text={}, name=C2]{\textbf{Unsupervised} Learning}{7}{10} \\
+		\ganttbar[ progress=100, progress label text={}, name=C2]{\textbf{Reinforcement} Learning}{11}{13} \\
+		\ganttbar[ progress=50, progress label text={}, name=C3]{\textbf{Fair} ML}{14}{18}
+	\end{ganttchart}
+\end{frame}
+
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+\section{Supervised Learning}
+\begin{frame}
+	\tableofcontents[currentsection]
+\end{frame}
+\section{Unsupervised Learning}
+\begin{frame}
+	\tableofcontents[currentsection]
+\end{frame}
+
+\end{document}
